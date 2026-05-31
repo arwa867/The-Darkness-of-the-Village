@@ -1,0 +1,97 @@
+Darkness of the Village is a text-based adventure game developed using Python.
+
+In this game, the player wakes up in a mysterious and quiet village and must make choices that affect the storyline and final outcome. The player can explore different locations such as an old house or a cursed garden, collect items like shields and swords, and face dangerous creatures.
+
+The game is based on decision-making, where each choice impacts the player's score and determines whether they win or lose.
+
+🧠 Code Explanation
+1. Libraries
+
+The game uses two main Python libraries:
+
+time → to add delays between text for a better user experience
+random → to randomly select a friend for the player
+2. Variables
+score → stores the player's points
+tool → stores collected items (like shields)
+3. Display Function
+def print_pause(text):
+    print(text)
+    time.sleep(1.3)
+
+This function prints text with a delay to create a storytelling effect.
+
+4. Player Setup
+
+The player enters their name and is welcomed into the game.
+
+5. Random Friend
+
+A random friend is selected from a predefined list using:
+
+random.choice(friend)
+6. Score System
+
+The score increases or decreases depending on the player's decisions throughout the game.
+
+7. Game Story
+
+The player starts in a mysterious village and is given two choices:
+
+Enter the old house
+Explore the cursed garden
+8. House Path
+The player finds a shield
+Choices:
+Take the shield → gain points
+Leave the shield → lose points
+
+The game also checks if the player already took the shield before.
+
+9. Garden Path
+
+This path includes multiple stages:
+
+Step 1:
+Enter with a shield → gain points
+Enter without a shield → lose points
+Step 2:
+Find a sword
+Take it → defeat the creature and gain points
+Leave it → struggle and lose points
+10. Ending Phase
+
+After finishing the adventure:
+
+If the score is high enough → player wins
+If not → the player gets a question to earn extra points
+11. Bonus Question
+
+The player is asked:
+
+"Which shape has 3 sides?"
+
+Correct answer ("triangle") → gain points
+Wrong answer → lose the game
+12. Final Result
+Score ≥ 60 → Win 🎉
+Score < 60 → Lose 💀
+13. Replay Option
+
+The player can choose to restart the game or exit.
+
+⚠️ Notes & Improvements
+Some variables (like take_shield) are not used effectively
+There are nested functions that can be simplified
+The code structure can be improved for better readability
+exit() is used after return, which is unnecessary
+💡 Summary
+
+This project demonstrates:
+
+Basic Python programming
+Use of functions
+Conditional statements
+Loops
+Lists and randomness
+Simple game logic design
