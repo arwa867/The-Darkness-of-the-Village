@@ -1,0 +1,320 @@
+# control time inside the game
+import time
+# used to add randomness
+import random
+# variable to store the player's score
+score = 0
+# list to store the player's shield
+tool = []
+# function to display text
+def print_pause(text):
+    print(text)
+    # pause for 1.3 seconds before displaying the next text
+    time.sleep(1.3)
+# displaying the game title with a short pause
+print_pause("DECI adventure game!")
+#Name of the story
+print_pause("🌑Darkness of the Village🌑")
+print_pause("Welcome! to the game Darkness of the Village🎮")
+# define a function named choice
+def first_choice():
+    # ask the player to enter their name
+    player_name = input("Enter your name:")
+    print_pause(f"Welcome {player_name}!")
+# call the choice function to run its code
+first_choice()
+# list containing a collection of names
+friend = ["Lana","Elena","Silvia"]
+# function to randomly select an item from a list
+def choice():
+    your_friend = random.choice(friend)
+    print_pause(f"Your friend is : {your_friend}")
+# call the choice function to run its code
+choice()
+# function to print the current points for each addition
+def total_score():
+    print_pause(f"Your score now is : {score}")
+# call the total_score function to run its code
+total_score()
+# function to check if the player has won or lost based on their score
+def check_win_lose():
+    if score >= 10:
+        # if the player wins, we print this text
+        print_pause("Congratulation, you've more score!")
+        return True
+    elif score <= 5:
+        # if the player lose, we print this text
+        print_pause("Unfortunately, your scores are still low.")
+        return False
+    else:
+        print_pause("Keep going, you're doing great!")
+        return None
+# call the check_win_lose function to run its code
+check_win_lose()
+# function to main_game the game
+def main_game():
+    print_pause("When you suddenly wake up.")
+    print_pause("You find yourself in a quiet and strange village.")
+    print_pause("In front of you, there is an old house.")
+    print_pause("By your right side, there is a small cursed garden.")
+    print_pause("You have a broken shield in your hand.")
+# call the main_game function to run its code
+main_game()
+# define a function named show_choice
+def show_choice():
+    print_pause("Enter 1 to take a round at the old house.")
+    print_pause("Enter 2 to go to a small cursed garden.")
+    print_pause("Where do you want to go?")
+# define a function named play_game
+def play_game():
+    # to repeat the command until it happens
+    while True:
+        # call the show_choice function to run its code
+        show_choice()
+        # prompt the user to enter either option 1 or 2
+        user_input = input("Enter (1) or (2):")
+        if user_input == "1":
+            take_shield = False
+            leave_shield = True
+            # function to start the game
+            def start():
+                print_pause("You chose the old house.")
+                print_pause("You enter the house carefully.")
+                print_pause("The house was be small")
+                print_pause("And abandoned from a short time ago.")
+                print_pause("While you explore the house...")
+                print_pause("You find a new shield!")
+                # function to make_choice in the game
+                def make_choice():
+                    # declare score as a global variable
+                    global score
+                    # to repeat the command until it happens
+                    while True:
+                        print("Do you want to take this shield?")
+                        print_pause("Enter (1) to take the shield.")
+                        print_pause("Enter (2) to leave the shield.")
+                        choice = input("Enter (1) or (2):")
+                        # check if the chosen item is already in the inventory (tool)
+                        if choice in tool:
+                            print_pause("You took this shield before.")
+                            print_pause("Go back to the village.")
+                            return
+                        if choice == "1":
+                            tool.append("1")
+                            print_pause("It is true, you take a shield.")
+                            score += 15
+                            total_score()
+                            print_pause("Congratulation, you've more score!")
+                            take_shield = True
+                            print_pause("Go back to the village.")
+                            return
+                        elif choice == "2":
+                            print_pause("It is false, you leave the shield")
+                            score -= 5
+                            total_score()
+                            print_pause("Unfortunately, your scores are still low.")
+                            leave_shield = False
+                            print_pause("Go back to the village.")
+                            return False
+                            exit()
+                        else:
+                            print_pause("Input not found.")
+                            print_pause("Try again.")
+                # call the make_choice function to run its code
+                make_choice()
+            # call the star_function to run its code
+            start()
+        elif user_input == "2":
+            enter_with_shield = True
+            enter_without_shield = False
+            take_the_sword = True
+            walk_without_the_sword = False
+            # function to start the game
+            def start():
+                print_pause("You chose the small cursed garden.")
+                print_pause("You enter the garden carefully.")
+                print_pause("You are about to enter the garden, but...")
+                print_pause("You hear a faint sound behind you!!")
+                print_pause("You turn around, but see nothing.")
+                print_pause("You think it's just imagination.")
+                print_pause("Then enter to the garden.")
+                print_pause("As you enter the garden...")
+                print_pause("Suddenly a tree behind you breaks!!")
+                print_pause("Blocking you to way out.")
+                print_pause("After the last hope of escaping the garden was gone.")
+                print_pause("You walk and search the garden cautiously.")
+                # function to make_choice in the game
+                def make_choice():
+                    global score
+                    # to repeat the command until it happens
+                    while True:
+                        print_pause("Do you prefer to enter with your shield for protection?")
+                        print_pause("Enter (1) to enter with shield.")
+                        print_pause("Enter (2) to enter without shield.")
+                        the_choice = input("Enter (1) or (2):")
+                        if the_choice == "1":
+                            print_pause("It is true, you enter with shield")
+                            score += 25
+                            total_score()
+                            print_pause("Congratulation, you've more score!")
+                            enter_with_shield = True
+                            print_pause("Keep walking inside the garden.")
+                            return
+                        elif the_choice == "2":
+                            print_pause("It is false, you enter without shield.")
+                            score -= 10
+                            total_score()
+                            print_pause("Unfortunately, your score are low.")
+                            enter_without_shield = False
+                            print_pause("Keep walking inside the garden.")
+                            return False
+                        else:
+                            print_pause("Input not found.")
+                            print_pause("Try again.")
+                # call the make_choice function to run its code
+                make_choice()
+                print_pause("While walking, you spotted a sword lying in front of you!")
+                # function to make choice in the game
+                def make_choice():
+                    global score
+                    # to repeat the command until it happens
+                    while True:
+                        print_pause("Do you want to go and take the sword?")
+                        print_pause("Enter (1) to take the sword.")
+                        print_pause("Enter (2) to continue walking without taking the sword.")
+                        in_choice = input("Enter (1) or (2):")
+                        if in_choice == "1":
+                            print_pause("It is true, you take the sword.")
+                            score += 25
+                            total_score()
+                            print_pause("Congratulation, you've more score!")
+                            take_the_sword = True
+                            print_pause("While you are walking and surrounded by a strange calm.")
+                            print_pause("Suddenly, you see a giant mysterious creature attacking you.")
+                            print_pause("You raise your shield, trying to protect yourself.")
+                            print_pause("Then you raise your sword")
+                            print_pause("And try to defeat the giant mysterious creature.")
+                            print_pause("You have already managed to defeat it.")
+                            score += 20
+                            total_score()
+                            print_pause("Walk quickly and make sure there are no other creatures.")
+                            print_pause("Suddenly, you stumble upon the hidden exit!!")
+                            print_pause("You rush and get out of it.")
+                            score += 30
+                            total_score()
+                            return
+                        elif in_choice == "2":
+                            print_pause("It is false, you are still walking without taking the sword.")
+                            score -= 5
+                            total_score()
+                            print_pause("Unfortunately, your scores are low.")
+                            walk_without_the_sword = False
+                            print_pause("While you are walking and surrounded by a strange calm.")
+                            print_pause("Suddenly, you see a giant mysterious creature attacking you.")
+                            print_pause("You raise your shield, trying to protect yourself.")
+                            print_pause("You struggle to push it back as it lunges at you.")
+                            print_pause("Then, you manage to push it away and escape quickly.")
+                            score -= 10
+                            total_score()
+                            print_pause("Because you couldn't defeat it.")
+                            print_pause("You search for an escape route.")
+                            print_pause("While you search for a place to escape.")
+                            print_pause("Suddenly, a new creature leaps into view!")
+                            print_pause("You couldn't defeat it this time.")
+                            print_pause("Suddenly, it attacked you and defeated you.")
+                            score -= 15
+                            total_score()
+                            return False
+                        else:
+                            print_pause("Input not found.")
+                            print_pause("Try again.")
+                make_choice()
+            start()
+            break
+        else:
+            print_pause("Input not found.")
+            print_pause("Try again.")
+# call the play_game function to run its code
+play_game()
+# function to stop game
+def stop_game():
+    print_pause("The curtain has fallen... and the time for play is over.")
+# call the stop_game function to run its code
+stop_game()
+total_score()
+# function to ask a question if the player's score is less than 60
+def ask_question():
+    global score
+    print_pause("Here's a question for you:")
+    print_pause("Which shape has 3 sides?")
+    answer = input("Enter your answer:")
+    if answer == "triangle":
+        print_pause("Correct! You earned 30 points!")
+        # award points for the correct answer
+        score += 30
+        total_score()
+        print_pause("Congratulations, you've more score!")
+    else:
+        print_pause("Incorrect answer. You lost the game.")
+        # deduct points for the incorrect answer
+        score -= 10
+        total_score()
+        print_pause("Unfortunately, you lost.")
+# function to check if the player has won or lost based on their score
+def check_player_win_lose():
+    global score
+    if score >= 60:
+        print_pause("Congratulations, you won the game!!")
+        print_pause("With a score of 60 or more!")
+        return True
+    elif score < 60:
+        print_pause("You still need more points.")
+        print_pause("Let's test your knowledge!")
+        # call the ask_question function to run its code
+        ask_question()
+# call the check_player_win_lose function to run its code
+check_player_win_lose()
+# define a function to display the game result based on the score
+def final_score():
+    if score < 60:
+        print_pause("You lost this game.")
+        print_pause("GAME OVER")
+# call the final_score function to run its code
+final_score()
+# function to end game
+def end_game():
+    print_pause("🌟 The adventure game has come to an end. 🌟")
+    print_pause("🌟 Thanks for playing! 🌟")
+# call the end_game function to run its code
+end_game()
+# function to play again
+def play_again():
+    global score
+    while True:
+        print_pause("Do you want to play again : (yes / no)")
+        the_answer = input("Enter (yes) or (no):")
+        if the_answer == "yes":
+            print_pause("Great! Restarting the game...")
+            score = 0
+            def main():
+                first_choice()
+                choice()
+                total_score()
+                check_win_lose()
+                main_game()
+                play_game()
+                stop_game()
+                check_player_win_lose()
+                final_score()
+                end_game()
+                play_again()
+            main()
+            return
+        elif the_answer == "no":
+            print_pause("Thank you for playing. Goodbye! 🌟")
+            break
+        else:
+            print_pause("Input not found.")
+            print_pause("Try again.")
+# call the play_again function to run its code
+play_again()
